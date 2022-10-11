@@ -7,7 +7,7 @@ class Advocate(models.Model):
     short_bio = models.CharField(max_length=150)
     long_bio = models.TextField()
     advocate_years_exp = models.PositiveSmallIntegerField(default=0)
-    company = models.ForeignKey('Company', models.SET_DEFAULT, related_name='advocates', default=None)
+    company = models.ForeignKey('Company', models.SET_DEFAULT, related_name='advocates', default=None, null=True)
 
 
 class Company(models.Model):
@@ -17,7 +17,7 @@ class Company(models.Model):
 
 
 class Link(models.Model):
-    advocate = models.OneToOneField(Advocate, models.CASCADE)
+    advocate = models.OneToOneField(Advocate, models.CASCADE, related_name="links")
     _fields = ['youtube', 'github', 'twitter'] # run migration after change!
 
 
