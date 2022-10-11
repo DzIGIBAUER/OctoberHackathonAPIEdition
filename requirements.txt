@@ -1,2 +1,4 @@
 Django==4.1.2
 djangorestframework==3.14.0
+djangorestframework-jsonapi==6.0.0
+Pillow==9.2.0
