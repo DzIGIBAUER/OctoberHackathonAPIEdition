@@ -1,5 +1,4 @@
 from rest_framework_json_api.views import ModelViewSet, RelationshipView
-from rest_framework.filters import SearchFilter
 
 from api.models import Company, Advocate
 from api.serializers import CompanySerializer, AdvocateSerializer
