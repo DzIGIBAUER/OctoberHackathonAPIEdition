@@ -14,7 +14,7 @@ class CompanyViewSet(ModelViewSet):
 class AdvocateViewSet(ModelViewSet):
     queryset = Advocate.objects.all()
     serializer_class = AdvocateSerializer
-    search_fields = ('name', 'short_bio', 'long_bio',)
+    search_fields = ('name',)
 
 
 class CompanyRelationshipView(RelationshipView):
