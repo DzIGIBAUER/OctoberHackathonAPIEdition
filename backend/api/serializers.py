@@ -2,13 +2,16 @@ from rest_framework_json_api.relations import ResourceRelatedField
 from rest_framework_json_api.serializers import HyperlinkedModelSerializer
 
 
-from api.models import Company, Advocate, Link
+from api.models import Company, Advocate, Links
+from backend.utils.profile_image_gen import generate_profile_image
+
+class LinksSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = Links
+        fields = Links._fields
 
 
 class CompanySerializer(HyperlinkedModelSerializer):
-    class Meta:
-        model = Company
-        fields = ('name', 'logo', 'summary', 'advocates', 'url')
     
     advocates = ResourceRelatedField(
         model=Advocate,
@@ -21,27 +24,36 @@ class CompanySerializer(HyperlinkedModelSerializer):
     related_serializers = {
         'advocates': 'api.serializers.AdvocateSerializer'
     }
+    
+    
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        
+        if not data.get('logo'):
+            data['logo'] = generate_profile_image(data['name'])
+        
+        return data
+
+    class Meta:
+        model = Company
+        fields = ('name', 'logo', 'summary', 'advocates', 'url')
+
 
 
 class AdvocateSerializer(HyperlinkedModelSerializer):
-    class Meta:
-        model = Advocate
-        fields = ('name', 'short_bio', 'long_bio', 'advocate_years_exp', 'company', 'url')
-    
     company = ResourceRelatedField(
         model=Company,
         queryset=Company.objects,
         self_link_view_name='advocate-relationships',
         related_link_view_name='advocate-related',
     )
+    
+    links = LinksSerializer()
 
     related_serializers = {
         'company': 'api.serializers.CompanySerializer'
     }
 
-
-
-class LinkSerializer(HyperlinkedModelSerializer):
     class Meta:
-        model = Link
-        fields = Link._fields
+        model = Advocate
+        fields = ('name', 'profile_image', 'short_bio', 'long_bio', 'advocate_years_exp', 'company', 'links', 'url')
