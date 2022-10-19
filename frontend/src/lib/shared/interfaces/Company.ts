@@ -1,15 +1,12 @@
-import type ILinks from "./Links";
-import type IAdvocate from "./Advocate";
-
 interface ICompany {
     id: number,
     name: string,
     username: string,
-    url: URL,
     logo: URL,
     bio: string,
-    links: ILinks[],
-    advocates: IAdvocate[]
+    advocates: number[]
+    twitter: URL | undefined,
+    linkedin: URL | undefined,
 }
 
 export default ICompany;

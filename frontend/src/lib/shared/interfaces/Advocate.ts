@@ -1,13 +1,11 @@
-import type ILinks from "./Links";
-
 interface IAdvocate {
     name: string,
     username: string,
     profile_pic: URL,
     bio: string,
-    url: URL,
-    links: ILinks[],
-    follower_count: number
+    twitter: URL,
+    follower_count: number,
+    companies: number[]
 }
 
 
