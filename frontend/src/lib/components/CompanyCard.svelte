@@ -5,23 +5,13 @@
         <h2 class="mdc-typography--headline2 name">{company.name}</h2>
 
         <p class="mdc-typography--body1 bio">{company.bio}</p>
-        
-        <div class="advocates-preview">
-            {#each company.advocates.slice(0, 5) as data}
-                <Wrapper>
-                    <img src={data.profile_pic.toString()} alt={data.name} />
-                    <Tooltip showDelay={1} hideDelay={0} xPos="start" yPos="above" >{data.name}</Tooltip>
-                </Wrapper>
-            {/each}
-        </div>
+
     </div>
 
 </div>
 
 <script lang="ts">
     import type ICompany from "$lib/shared/interfaces/Company";
-
-    import Tooltip, { Wrapper } from '@smui/tooltip';
 
     export let company: ICompany;
 
