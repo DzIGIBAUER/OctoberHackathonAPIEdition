@@ -1,36 +1,46 @@
 <div class="container">
 
     <Card class="advocate-card">
+        <Content class="flex-content">
+            <img class="profile-pic" src={advocate.profile_pic.toString()} alt={advocate.name} />
+            <div style="display: block;">
+                <p class="mdc-typography--subtitle1 name" style="margin-bottom: 0;">{advocate.name}</p>
+                {#if advocate.twitter}
+                    <a class="mdc-typography--body2 name" rel="noreferrer" target="_blank" href={advocate.twitter.toString()}>@{advocate.username}</a>
+                {/if}
+            </div>
+        </Content>
+
         <a style="all: unset;" href="#advocate">
             <PrimaryAction>
-                <Content class="flex-content">
-                    <img class="profile-pic" src={advocate.profile_pic.toString()} alt={advocate.name} />
-                    <p class="mdc-typography--subtitle1 name">{advocate.name}</p>
-                </Content>
+                <p style="text-align: center;" class="mdc-typography--button" >See more...</p>
             </PrimaryAction>
         </a>
     </Card>
+
 </div>
 
 
 <script lang="ts">
     import type IAdvocate from '$lib/shared/interfaces/Advocate';
+    
+    import Card, { PrimaryAction, Content } from '@smui/card';
 
     export let advocate: IAdvocate;
 
-    import Card, { PrimaryAction, Content } from '@smui/card';
 </script>
 
 
 <style lang="scss">
 
     :global(.advocate-card) {
+        overflow: hidden;
         
-
         :global(.flex-content) {
             display: flex;
             flex-direction: row;
             align-items: center;
+            height: 50px;
         }
 
         .name {
