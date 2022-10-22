@@ -1,4 +1,5 @@
 import type IAdvocate from "$lib/shared/interfaces/Advocate";
+import type { IPagination } from "$lib/shared/interfaces/Pagination";
 import type { PageLoad } from './$types';
 
 import { get } from "svelte/store";
@@ -8,16 +9,7 @@ import { advocatesUrl } from "$lib/store";
 import axios from "axios";
 
 interface IResponse {
-    pagination: {
-        current_page: number,
-        total_pages: number,
-        has_previous: boolean,
-        has_next: boolean,
-        prev_page: any,
-        next_page: any,
-        results_found: number,
-        pages: number[]
-    },
+    pagination: IPagination,
     advocates: IAdvocate[],
     total: number
 }

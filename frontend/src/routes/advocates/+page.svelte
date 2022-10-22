@@ -1,6 +1,6 @@
 <div class="container">
 
-    <Pagination pages={data.pagination.pages} currentPage={data.pagination.current_page}>
+    <Pagination pagination={data.pagination}>
 
         {#each data.advocates as advocate}
             <p>{advocate.name}</p>
