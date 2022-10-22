@@ -1,26 +1,21 @@
 <div class="container">
 
-    {#await dataPromise}
-        <p>Loading...</p>
-    {:then data}
-    
-        <Pagination pages={data.pagination.pages} currentPage={data.pagination.current_page}>
-            {#each data.advocates as advocate }
-                <p>{advocate.name}</p>
-            {/each}
-        </Pagination>
+    <Pagination pages={data.pagination.pages} currentPage={data.pagination.current_page}>
 
-    {/await}
+        {#each data.advocates as advocate}
+            <p>{advocate.name}</p>
+        {/each}
+
+    </Pagination>
 
 </div>
 
 
 <script lang="ts">
-    import { getAdvocateListPageData } from "$lib/shared/utils/dataRetrive";
-
-    import { page } from "$app/stores";
+    import type { PageData } from './$types';
 
     import Pagination from "$lib/components/Pagination.svelte";
 
-    const dataPromise = getAdvocateListPageData($page.url.searchParams.get("page") || undefined);
+    export let data: PageData;
+
 </script>

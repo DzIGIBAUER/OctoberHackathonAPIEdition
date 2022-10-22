@@ -23,31 +23,3 @@ export async function getAdvocateDetails(advocateUsername: string): Promise<IAdv
 
     return data;
 }
-
-
-interface IAdvocateListResponse {
-    pagination: {
-        current_page: number,
-        total_pages: number,
-        has_previous: boolean,
-        has_next: boolean,
-        prev_page: any,
-        next_page: any,
-        results_found: number,
-        pages: number[]
-    },
-    advocates: IAdvocate[],
-    total: number
-}
-
-export async function getAdvocateListPageData(page: number = 1): Promise<IAdvocateListResponse> {
-
-    // Let's set page query parameter
-    const url = new URL(advocateListUrl);
-    url.searchParams.set("page", page.toString());
-
-
-    const { data } = await axios.get<IAdvocateListResponse>(url.toString());
-
-    return data;
-}

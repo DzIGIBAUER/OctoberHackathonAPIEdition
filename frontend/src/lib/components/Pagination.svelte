@@ -2,15 +2,17 @@
 
     <div class="page-buttons-container">
         <Group variant="raised">
+
             {#each pages as page}
                 <Button
-                    on:click={ () => {changePage(page)} }
+                    on:click={ () => { changePage(page); } }
                     variant="raised"
                     color={page == currentPage ? "primary" : "secondary"}
                 >
                     <Label>{page}</Label>
                 </Button>
             {/each}
+
         </Group>
     </div>
 
@@ -21,20 +23,17 @@
 
 
 <script lang="ts">
+    import { goto } from "$app/navigation";
+
     import Button, { Group, Label } from "@smui/button";
 
     export let pages: number[];
     export let currentPage: number;
 
-    console.log(pages, currentPage);
-
     function changePage(page: number): void {
-        if (page == currentPage) return;
-        
-        const searchParams = new URLSearchParams(window.location.search);
-        searchParams.set("page", page.toString());
-
-        window.location.search = searchParams.toString();
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page.toString());
+        goto(url);
     }
 
 </script>
@@ -43,6 +42,7 @@
 
     .page-buttons-container {
         display: flex;
+        justify-content: center;
     }
 
 </style>
