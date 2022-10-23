@@ -1,0 +1,32 @@
+
+<a
+    href={href}
+    target={targetBlank ? "_blank" : "_self"}
+    rel={targetBlank ? "noreferrer" : ""}
+    class="mdc-typography--body1"
+>
+    <slot />
+    {#if targetBlank}
+        <Icon class="material-icons target-blank-icon">open_in_new</Icon>
+    {/if}
+</a>
+
+
+<script lang="ts">
+
+    import { Icon } from "@smui/common";
+
+    export let targetBlank = false;
+    export let href: string;
+
+</script>
+
+<style>
+    a {
+        display: flex;
+    }
+
+    :global(.target-blank-icon) {
+        font-size: 15px;
+    }
+</style>

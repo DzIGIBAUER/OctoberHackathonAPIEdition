@@ -14,20 +14,20 @@
             <Cell spanDevices={{desktop: 9, tablet: 12}}>
                 <div>
                     <h1 class="mdc-typography--headline2 advocate-name">{data.name}</h1>
-                    <div class="twitter-info">
-                        
-                        <a
-                            href={data.twitter.toString()}
-                            target="_blank"
-                            rel="noreferrer"
-                            class="mdc-typography--body1"
-                        >
-                            @{data.username}
-                        </a>
+                    {#if data.twitter}
+                        <div class="twitter-info">
 
-                        <p class="mdc-typography--body1">Followers: {data.follower_count}</p>
+                            <Link
+                                href={data.twitter.toString()}
+                                targetBlank
+                            >
+                                @{data.username}
+                            </Link>
 
-                    </div>
+                            <p class="mdc-typography--body1">Followers: {data.follower_count}</p>
+
+                        </div>
+                    {/if}
                     <p class="mdc-typography--body1">{data.bio}</p>
                 </div>
             </Cell>
@@ -41,6 +41,8 @@
 
     import LayoutGrid, { Cell } from "@smui/layout-grid";
     import Button, { Label, Icon } from "@smui/button";
+
+    import Link from "$lib/components/Link.svelte";
 
     export let data: PageData;
 

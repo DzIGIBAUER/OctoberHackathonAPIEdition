@@ -6,7 +6,12 @@
             <div style="display: block;">
                 <p class="mdc-typography--subtitle1 name" style="margin-bottom: 0;">{advocate.name}</p>
                 {#if advocate.twitter}
-                    <a class="mdc-typography--body2 name" rel="noreferrer" target="_blank" href={advocate.twitter.toString()}>@{advocate.username}</a>
+                    <Link
+                        href={advocate.twitter.toString()}
+                        targetBlank
+                    >
+                        @{advocate.username}
+                    </Link>
                 {/if}
             </div>
         </Content>
@@ -25,6 +30,7 @@
     import type IAdvocate from '$lib/shared/interfaces/Advocate';
     
     import Card, { PrimaryAction, Content } from '@smui/card';
+    import Link from './Link.svelte';
 
     export let advocate: IAdvocate;
 
