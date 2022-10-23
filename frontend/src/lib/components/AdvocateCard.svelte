@@ -11,7 +11,7 @@
             </div>
         </Content>
 
-        <a style="all: unset;" href="#advocate">
+        <a style="all: unset;" href={`advocates/${advocate.username}`}>
             <PrimaryAction>
                 <p style="text-align: center;" class="mdc-typography--button" >See more...</p>
             </PrimaryAction>
