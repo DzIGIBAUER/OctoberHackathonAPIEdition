@@ -1,9 +1,9 @@
 
 <main class="container">
     <Loading>
-        <Button variant="raised" href="/advocates">
+        <Button variant="raised" href={backPage.toString()}>
             <Icon class="material-icons">arrow_back</Icon>
-            <Label>List of advocates</Label>
+            <Label>Go back to page {backPage.searchParams.get("page") || 1}</Label>
         </Button>
     
         <article>
@@ -48,9 +48,19 @@
     import Link from "$lib/components/Link.svelte";
     import Loading from "$lib/components/Loading.svelte";
 
+    import { afterNavigate } from "$app/navigation";
+    import { page } from "$app/stores";
+
     import { parseForLinks } from "$lib/shared/utils/parseText";
 
     export let data: PageData;
+
+
+    let backPage: URL = new URL("/advocates", $page.url.origin);
+
+    afterNavigate(({from}) => {
+        if (from) backPage = from.url;
+    });
 
 </script>
 
