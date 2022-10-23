@@ -28,7 +28,7 @@
 
                         </div>
                     {/if}
-                    <p class="mdc-typography--body1">{data.bio}</p>
+                    <p class="mdc-typography--body1">{ @html parseForLinks(data.bio) }</p>
                 </div>
             </Cell>
         </LayoutGrid>
@@ -43,6 +43,8 @@
     import Button, { Label, Icon } from "@smui/button";
 
     import Link from "$lib/components/Link.svelte";
+
+    import { parseForLinks } from "$lib/shared/utils/parseText";
 
     export let data: PageData;
 
