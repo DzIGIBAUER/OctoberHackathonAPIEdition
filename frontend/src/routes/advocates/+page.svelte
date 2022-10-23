@@ -1,7 +1,4 @@
-<div class="container">
-
-    <h1 class="mdc-typography--headline2">Advocates</h1>
-
+<Loading>
     <LayoutGrid>
 
         {#each data.advocates as advocate}
@@ -15,8 +12,7 @@
         </LayoutGrid>
         
     <Pagination pagination={data.pagination} />
-
-</div>
+</Loading>
 
 
 <script lang="ts">
@@ -24,6 +20,8 @@
 
     import Pagination from "$lib/components/Pagination.svelte";
     import AdvocateCard from '$lib/components/AdvocateCard.svelte';
+
+    import Loading from '$lib/components/Loading.svelte';
 
     import LayoutGrid, { Cell } from '@smui/layout-grid';
 

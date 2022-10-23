@@ -20,7 +20,7 @@ const advocateListUrl = get(advocatesUrl);
 export const load: PageLoad = async ({ url }) => {
     
     const fetchUrl = new URL(advocateListUrl);
-
+    
     const page = url.searchParams.get("page");
     if (page) fetchUrl.searchParams.set("page", page);
 
