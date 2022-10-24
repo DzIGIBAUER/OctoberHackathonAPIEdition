@@ -1,5 +1,6 @@
+
 <Loading>
-    <LayoutGrid>
+    <LayoutGrid >
 
         {#each data.advocates as advocate}
 

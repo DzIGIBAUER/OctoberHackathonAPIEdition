@@ -6,7 +6,7 @@ import { get } from "svelte/store";
 import axios from "axios";
 
 import { advocatesUrl } from "$lib/store";
-
+import { cachedAdvocateData } from "$lib/shared/cache.store";
 
 
 const advocateListUrl = get(advocatesUrl);
@@ -17,6 +17,12 @@ interface IResponse {
 }
 
 export const load: PageLoad = async ({ params }): Promise<IAdvocate> => {
+
+    const cachedData = cachedAdvocateData.getData();
+    if (cachedData) {
+        const advocateData = cachedData.advocates.find(advocate => advocate.username == params.username)
+        if (advocateData) return advocateData;
+    }
 
     const fetchUrl = new URL(`advocates/${params.username}`, advocateListUrl);
     

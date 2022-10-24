@@ -1,4 +1,7 @@
-interface IAdvocate {
+import type IPagination from "./Pagination";
+
+
+export default interface IAdvocate {
     name: string,
     username: string,
     profile_pic: URL,
@@ -8,6 +11,9 @@ interface IAdvocate {
     companies: number[]
 }
 
-
-
-export default IAdvocate;
+// Advocate API endpoint response data
+export interface IAdvocateResponse {
+    pagination: IPagination,
+    advocates: IAdvocate[],
+    total: number
+}

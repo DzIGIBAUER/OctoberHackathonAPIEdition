@@ -1,4 +1,4 @@
-export interface IPagination {
+export default interface IPagination {
     current_page: number,
     total_pages: number,
     has_previous: boolean,
