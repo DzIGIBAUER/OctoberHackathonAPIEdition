@@ -1,4 +1,5 @@
 import type { IAdvocateResponse } from "$lib/shared/interfaces/Advocate";
+import type { ICompanyResponse } from "$lib/shared/interfaces/Company";
 
 import { writable, type Writable } from "svelte/store";
 
@@ -37,5 +38,7 @@ class Cached<T> {
 
 
 const advocateDataWriteable: Writable<IAdvocateResponse> = writable();
+const companyDataWriteable: Writable<ICompanyResponse> = writable();
 
-export const cachedAdvocateData = new Cached<IAdvocateResponse>(advocateDataWriteable, 60000);
+export const cachedAdvocateData = new Cached<IAdvocateResponse>(advocateDataWriteable, 60 * 100);
+export const cachedCompaniesData = new Cached<ICompanyResponse>(companyDataWriteable, 60 * 100);

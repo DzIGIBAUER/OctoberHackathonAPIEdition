@@ -1,7 +1,7 @@
-import type IAdvocate from '$lib/shared/interfaces/Advocate';
-import type { PageLoad } from './$types';
+import type IAdvocate from "$lib/shared/interfaces/Advocate";
+import type { PageLoad } from "./$types";
 
-import { error } from '@sveltejs/kit';
+import { error } from "@sveltejs/kit";
 import { get } from "svelte/store";
 import axios from "axios";
 

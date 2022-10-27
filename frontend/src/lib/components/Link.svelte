@@ -1,6 +1,6 @@
 
 <a
-    href={href}
+    href={href.toString()}
     target={targetBlank ? "_blank" : "_self"}
     rel={targetBlank ? "noreferrer" : ""}
     class="mdc-typography--body1"
@@ -17,7 +17,7 @@
     import { Icon } from "@smui/common";
 
     export let targetBlank = false;
-    export let href: string;
+    export let href: URL | string;
 
 </script>
 

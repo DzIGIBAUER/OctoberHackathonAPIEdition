@@ -1,37 +1,28 @@
+<main>
 
-<div class="container">
-    
-    {#each companiesData as data}
-        <div class="company-container">
-            <CompanyCard company={data} />
+    {#each data.companies as company}
+        <div class="company-info-div">
+            <CompanyInformation company={company} />
         </div>
     {/each}
 
-</div>
+</main>
 
 
 <script lang="ts">
     import type { PageData } from "./$types";
-	import type ICompany from "$lib/shared/interfaces/Company";
 
-    import LayoutGrid, { Cell } from "@smui/layout-grid";
-    import CompanyCard from "$lib/components/CompanyCard.svelte";
+    import CompanyInformation from "$lib/components/CompanyInformation.svelte";
 
     export let data: PageData;
 
-    let companiesData = Object.values(data) as ICompany[];
-    companiesData = companiesData.slice(0, 2)
-    
 </script>
 
 
 <style>
 
-    .container {
-        width: 50%;
-        margin: auto;
+    .company-info-div {
+        padding: 15px;
     }
 
 </style>
-
-

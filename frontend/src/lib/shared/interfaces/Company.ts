@@ -1,4 +1,4 @@
-interface ICompany {
+export default interface ICompany {
     id: number,
     name: string,
     username: string,
@@ -9,4 +9,8 @@ interface ICompany {
     linkedin: URL | undefined,
 }
 
-export default ICompany;
+
+export interface ICompanyResponse {
+    total: number,
+    companies: ICompany[]
+}
