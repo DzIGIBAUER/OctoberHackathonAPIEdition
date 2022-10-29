@@ -3,7 +3,7 @@
     <Card class="card">
         <Content class="flex-content">
             <div class="info-left">
-                <img src={company.logo.toString()} alt={company.name} />
+                <img src={company.logo.toString()} alt={company.name} loading="lazy" />
             </div>
             <div class="info-right">
                 <h2 class="mdc-typography--headline2 name">{company.name}</h2>
