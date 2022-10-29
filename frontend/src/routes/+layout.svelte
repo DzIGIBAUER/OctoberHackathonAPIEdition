@@ -1,4 +1,9 @@
+<Header />
 <slot></slot>
+
+<script lang="ts">
+    import Header from "$lib/components/Header.svelte";
+</script>
 
 <style lang="scss" global>
 

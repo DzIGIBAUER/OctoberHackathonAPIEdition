@@ -16,6 +16,7 @@
 	},
 	"devDependencies": {
 		"@material/dom": "^14.0.0",
+		"@material/elevation": "^14.0.0",
 		"@material/typography": "^14.0.0",
 		"@smui/button": "^7.0.0-beta.0",
 		"@smui/card": "^7.0.0-beta.0",

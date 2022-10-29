@@ -1,7 +1,7 @@
 
 <a
     href={href.toString()}
-    target={targetBlank ? "_blank" : "_self"}
+    target={targetBlank ? "_blank" : ""}
     rel={targetBlank ? "noreferrer" : ""}
     class="mdc-typography--body1"
 >
@@ -24,6 +24,7 @@
 <style>
     a {
         display: flex;
+        width: fit-content;
     }
 
     :global(.target-blank-icon) {
