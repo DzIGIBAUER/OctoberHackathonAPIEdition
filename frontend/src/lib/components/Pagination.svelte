@@ -69,7 +69,7 @@
 
 <script lang="ts">
     import { goto } from "$app/navigation";
-	import type { IPagination } from "$lib/shared/interfaces/Pagination";
+	import type IPagination from "$lib/shared/interfaces/Pagination";
 
     import Button, { Group, Label } from "@smui/button";
     import Tooltip, { Wrapper } from "@smui/tooltip";

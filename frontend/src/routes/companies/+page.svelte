@@ -2,7 +2,7 @@
 
     {#each data.companies as company}
         <div class="company-info-div">
-            <CompanyInformation company={company} />
+            <CompanyCard company={company} />
         </div>
     {/each}
 
@@ -12,7 +12,7 @@
 <script lang="ts">
     import type { PageData } from "./$types";
 
-    import CompanyInformation from "$lib/components/CompanyInformation.svelte";
+    import CompanyCard from "$lib/components/CompanyCard.svelte";
 
     export let data: PageData;
 

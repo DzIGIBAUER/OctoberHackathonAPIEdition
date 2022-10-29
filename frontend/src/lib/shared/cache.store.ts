@@ -40,5 +40,5 @@ class Cached<T> {
 const advocateDataWriteable: Writable<IAdvocateResponse> = writable();
 const companyDataWriteable: Writable<ICompanyResponse> = writable();
 
-export const cachedAdvocateData = new Cached<IAdvocateResponse>(advocateDataWriteable, 60 * 100);
-export const cachedCompaniesData = new Cached<ICompanyResponse>(companyDataWriteable, 60 * 100);
+export const cachedAdvocateData = new Cached<IAdvocateResponse>(advocateDataWriteable, 60 * 1000);
+export const cachedCompaniesData = new Cached<ICompanyResponse>(companyDataWriteable, 60 * 1000);

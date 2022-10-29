@@ -1,4 +1,4 @@
-<div class="container">
+<article>
 
     <Card class="advocate-card">
         <Content class="flex-content">
@@ -16,20 +16,21 @@
             </div>
         </Content>
 
-        <a style="all: unset;" href={`advocates/${advocate.username}`}>
-            <PrimaryAction>
-                <p style="text-align: center;" class="mdc-typography--button" >See more...</p>
-            </PrimaryAction>
-        </a>
+        <PrimaryAction>
+            <Button href={`advocates/${advocate.username}`}>
+                <Label class="mdc-typography--button" >See more...</Label>
+            </Button>
+        </PrimaryAction>
     </Card>
 
-</div>
+</article>
 
 
 <script lang="ts">
     import type IAdvocate from '$lib/shared/interfaces/Advocate';
     
     import Card, { PrimaryAction, Content } from '@smui/card';
+    import Button, { Label } from '@smui/button';
     import Link from './Link.svelte';
 
     export let advocate: IAdvocate;

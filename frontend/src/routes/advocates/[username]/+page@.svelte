@@ -1,5 +1,5 @@
 
-<main class="container">
+<main>
     <Loading>
         <Button variant="raised" href={backPage.toString()}>
             <Icon class="material-icons">arrow_back</Icon>
@@ -68,7 +68,7 @@
 
 <style lang="scss">
 
-    .container {
+    main {
         margin: 15px;
 
         article {

@@ -9,7 +9,7 @@ export default interface ICompany {
     linkedin: URL | undefined,
 }
 
-
+// Companies endpoint response data
 export interface ICompanyResponse {
     total: number,
     companies: ICompany[]
