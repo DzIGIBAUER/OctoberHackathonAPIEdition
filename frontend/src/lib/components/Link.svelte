@@ -21,10 +21,19 @@
 
 </script>
 
-<style>
+<style lang="scss">
     a {
-        display: flex;
+        display: inline-flex;
         width: fit-content;
+        color: var(--mdc-theme-primary);
+
+        :global(*) {
+            margin: 0;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     :global(.target-blank-icon) {

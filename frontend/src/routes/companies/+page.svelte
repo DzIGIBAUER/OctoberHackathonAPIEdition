@@ -1,10 +1,12 @@
 <main>
 
-    {#each data.companies as company}
-        <div class="company-info-div">
-            <CompanyCard company={company} />
-        </div>
-    {/each}
+    <Loading>
+        {#each data.companies as company}
+            <div class="company-info-div">
+                <CompanyCard company={company} />
+            </div>
+        {/each}
+    </Loading>
 
 </main>
 
@@ -13,6 +15,7 @@
     import type { PageData } from "./$types";
 
     import CompanyCard from "$lib/components/CompanyCard.svelte";
+    import Loading from "$lib/components/Loading.svelte";
 
     export let data: PageData;
 
