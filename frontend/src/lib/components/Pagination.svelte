@@ -25,18 +25,22 @@
             </Wrapper>
 
 
-            {#each pagination.pages as page}
-                <Wrapper>
-                    <Button
-                        on:click={ () => { changePage(page); } }
-                        variant="raised"
-                        color={page == pagination.current_page ? "primary" : "secondary"}
-                    >
-                        <Label>{page}</Label>
-                    </Button>
-                    <Tooltip hideDelay={0}>Page {page}</Tooltip>
-                </Wrapper>
-            {/each}
+            <LayoutGrid innerGrid$class="inner-grid" class="pages-layout-grid">
+                {#each pagination.pages as page}
+                    <Cell span={1}>
+                        <Wrapper>
+                            <Button
+                                on:click={ () => { changePage(page); } }
+                                variant="raised"
+                                color={page == pagination.current_page ? "primary" : "secondary"}
+                            >
+                                <Label>{page}</Label>
+                            </Button>
+                            <Tooltip hideDelay={0}>Page {page}</Tooltip>
+                        </Wrapper>
+                    </Cell>
+                {/each}
+            </LayoutGrid>
 
             <Wrapper>
                 <Button
@@ -73,6 +77,7 @@
 
     import Button, { Group, Label } from "@smui/button";
     import Tooltip, { Wrapper } from "@smui/tooltip";
+    import LayoutGrid, { Cell } from "@smui/layout-grid";
 
     export let pagination: IPagination;
 
@@ -89,6 +94,14 @@
     .page-buttons-container {
         display: flex;
         justify-content: center;
+    }
+
+    :global(.pages-layout-grid) {
+        padding: 0;
+    
+        :global(.inner-grid) {
+            gap: 1px;
+        }
     }
 
 </style>
