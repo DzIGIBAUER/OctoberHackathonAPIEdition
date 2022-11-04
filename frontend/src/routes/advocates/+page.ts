@@ -12,18 +12,22 @@ import axios from "axios";
 const advocateListUrl = get(advocatesUrl);
 
 export const load: PageLoad = async ({ url }) => {
+    const searchQuery = url.searchParams.get("search") || undefined;
     
     const page = url.searchParams.get("page") || "1";
 
-    const cachedData = cachedAdvocateData.getData();
-    if (cachedData && cachedData.pagination.current_page.toString() == page) return cachedData;
+    if (!searchQuery) {
+        const cachedData = cachedAdvocateData.getData();
+        if (cachedData && cachedData.pagination.current_page.toString() == page) return cachedData;
+    }
 
     const fetchUrl = new URL(advocateListUrl);
     fetchUrl.searchParams.set("page", page);
+    if (searchQuery) fetchUrl.searchParams.set("query", searchQuery);
 
     const { data } = await axios.get<IAdvocateResponse>(fetchUrl.toString());
 
-    cachedAdvocateData.updateData(data);
+    if (!searchQuery) cachedAdvocateData.updateData(data);
 
     return data;
 };
