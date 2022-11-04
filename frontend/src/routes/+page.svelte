@@ -46,12 +46,12 @@
 
     .info {
         &.companies {
-            background-image: url("corporate_fare.svg");
+            background-image: url("/corporate_fare.svg");
             background-position-x: right;
         }
 
         &.advocates {
-            background-image: url("group.svg");
+            background-image: url("/group.svg");
         }
 
         display: flex;
